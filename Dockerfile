@@ -75,8 +75,8 @@ RUN cd ${TMP_DIR}/Ipopt \
     && ./get.Lapack \
     && cd "$TMP_DIR/Ipopt/Ipopt-${IPOPT_VER}/ThirdParty/Mumps" \
     && ./get.Mumps \
-    && cd "$TMP_DIR/Ipopt/Ipopt-${IPOPT_VER}/ThirdParty/Metis" \
-    && ./get.Metis \
+#    && cd "$TMP_DIR/Ipopt/Ipopt-${IPOPT_VER}/ThirdParty/Metis" \
+#    && ./get.Metis \
     && cd "$TMP_DIR/Ipopt/Ipopt-${IPOPT_VER}" \
     && ./configure --prefix="$BUILD_DIR/Ipopt" \
     && make \

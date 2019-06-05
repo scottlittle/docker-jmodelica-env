@@ -4,8 +4,8 @@
 CONTAINER_NAME=jmodelica
 VERSION=0.0
 BUILD_PATH=/opt
-MPCPy_PATH=
-EstimationPy_PATH=
+MPCPy_PATH=/home/paperspace/docker-jmodelica-env/MPCPy
+EstimationPy_PATH=/home/paperspace/docker-jmodelica-env/EstimationPy
 MSL_PATH=$(BUILD_PATH)/JModelica/ThirdParty/MSL
 
 build-trunk: ## Creates an image based on trunk version of JModelica.
@@ -30,7 +30,7 @@ dev-notebook:
 	-v $(MPCPy_PATH):$(BUILD_PATH)/MPCPy:rw \
 	-v $(EstimationPy_PATH):$(BUILD_PATH)/EstimationPy:rw \
 	-p 127.0.0.1:8888:8888 \
-	$(CONTAINER_NAME)-trunk:$(VERSION) \
+	installed_pydoe \
 	sh -c 'jupyter lab --ip="0.0.0.0" --allow-root --no-browser --matplotlib=inline \
 	--port=8888 --notebook-dir=/root'
 .PHONY: dev-notebook
